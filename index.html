@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Psicoterapia com Valor Social | Atendimento Presencial e On-line</title>
+  <meta name="description" content="Cuidar da sua saúde mental também é prioridade. Atendimento psicológico acolhedor, humanizado e acessível por valor social. Primeira consulta de acolhimento gratuita. Presencial ou on-line." />
+  <meta name="theme-color" content="#164A2F" />
+
+  <!-- Google Fonts: Merriweather (Títulos acolhedores), Plus Jakarta Sans (Corpo limpo) & Caveat (Destaque orgânico do anúncio) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#164A2F',
+              dark: '#0F3521',
+              light: '#236341',
+            },
+            olive: {
+              DEFAULT: '#48744C',
+              light: '#5D8C61',
+              soft: '#6E9972',
+            },
+            sage: {
+              DEFAULT: '#E4EFE2',
+              light: '#EFF5ED',
+              highlight: '#E2ECC8',
+            },
+            cream: {
+              DEFAULT: '#FAF6EE',
+              warm: '#F3ECE0',
+              card: '#FFFDF9',
+            },
+            wood: {
+              light: '#E5D5C0',
+              DEFAULT: '#C89F72',
+              dark: '#9B7248',
+            },
+            ink: {
+              DEFAULT: '#233028',
+              muted: '#526157',
+              subtle: '#78867C',
+            }
+          },
+          fontFamily: {
+            serif: ['"Merriweather"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            hand: ['"Caveat"', 'cursive'],
+          },
+          boxShadow: {
+            'soft': '0 12px 32px -8px rgba(22, 74, 47, 0.08)',
+            'card': '0 16px 40px -12px rgba(22, 74, 47, 0.12)',
+            'glow': '0 8px 25px -4px rgba(37, 211, 102, 0.4)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Texturas sutis e animações orgânicas */
+    body {
+      background-color: #FAF6EE;
+      color: #233028;
+      overflow-x: hidden;
+    }
+
+    /* Efeito de pincelada suave inspirado na arte do anúncio */
+    .brush-highlight {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+    .brush-highlight::before {
+      content: "";
+      position: absolute;
+      inset: -2px -10px;
+      background: #E2ECC8;
+      border-radius: 24px 8px 20px 10px;
+      z-index: -1;
+      transform: rotate(-0.8deg);
+    }
+
+    /* Animação suave de entrada ao rolar a página */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Transição suave para o Accordion do FAQ */
+    .faq-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease-out, opacity 0.3s ease-out;
+      opacity: 0;
+    }
+    .faq-item.open .faq-content {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+    .faq-inner {
+      overflow: hidden;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(180deg);
+      background-color: #164A2F;
+      color: #FAF6EE;
+    }
+
+    /* Pulso acolhedor no botão flutuante do WhatsApp */
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(22, 74, 47, 0.5);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 14px rgba(22, 74, 47, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(22, 74, 47, 0);
+      }
+    }
+    .whatsapp-pulse {
+      animation: pulse-ring 2.6s infinite;
+    }
+
+    /* Barra de rolagem personalizada */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF6EE;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #48744C;
+      border-radius: 9999px;
+      border: 2px solid #FAF6EE;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #164A2F;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-olive selection:text-white">
+
+  <!-- Barra de Aviso Superior Acolhedora -->
+  <div class="bg-forest text-cream text-xs sm:text-sm py-2.5 px-4 border-b border-forest-light/40">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-2 mx-auto sm:mx-0">
+        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-sage-highlight text-forest font-bold text-xs">♥</span>
+        <span><strong>Primeira consulta de acolhimento não é cobrada</strong> • Atendimento Presencial e On-line</span>
+      </div>
+      <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+         target="_blank"
+         rel="noopener noreferrer"
+         class="hidden md:inline-flex items-center gap-1.5 text-sage-highlight hover:underline font-medium">
+        <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+        <span>WhatsApp: (51) 99618-1136</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Cabeçalho / Navegação Fixa -->
+  <header id="header" class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b border-wood-light/60 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Marca / Identidade -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-11 h-11 rounded-2xl bg-forest text-cream flex items-center justify-center shadow-sm group-hover:bg-olive transition-colors">
+          <!-- Ícone Botânico + Coração inspirado no anúncio -->
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            <path d="M12 5v16" class="opacity-40"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-hand text-2xl sm:text-3xl font-bold text-forest leading-none block">Psicoterapia</span>
+          <span class="text-xs font-medium tracking-wider uppercase text-ink-muted block -mt-1">Valor Social • Presencial & On-line</span>
+        </div>
+      </a>
+
+      <!-- Links Desktop -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-ink-muted" aria-label="Navegação Principal">
+        <a href="#pilares" class="hover:text-forest transition-colors py-1">Pilares</a>
+        <a href="#para-quem" class="hover:text-forest transition-colors py-1">Quando Buscar</a>
+        <a href="#sobre" class="hover:text-forest transition-colors py-1">Sobre a Profissional</a>
+        <a href="#como-funciona" class="hover:text-forest transition-colors py-1">Como Funciona</a>
+        <a href="#faq" class="hover:text-forest transition-colors py-1">Dúvidas (FAQ)</a>
+      </nav>
+
+      <!-- CTA Rápido Desktop -->
+      <div class="hidden sm:flex items-center gap-2.5">
+        <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 bg-forest hover:bg-forest-dark text-cream font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow transition-all duration-200 active:scale-[0.98]">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.533 5.859l-1.533 5.641 5.792-1.519c1.693.896 3.621 1.406 5.672 1.406 6.627 0 12-5.373 12-12s-5.373-12-12.464-11.387z"/>
+          </svg>
+          <span>Agendar Conversa</span>
+        </a>
+      </div>
+
+      <!-- Botão Menu Mobile -->
+      <button id="mobile-menu-btn"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              aria-label="Abrir menu de navegação"
+              class="lg:hidden inline-flex items-center justify-center p-2.5 rounded-xl text-forest hover:bg-sage border border-wood-light/70 transition-colors">
+        <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+        <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+      </button>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-cream-card border-b border-wood-light px-4 pt-3 pb-6 shadow-card">
+      <nav class="flex flex-col space-y-2 text-base font-medium text-ink" aria-label="Menu Mobile">
+        <a href="#pilares" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-sage transition-colors flex items-center justify-between">
+          <span>Pilares do Atendimento</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-olive"></i>
+        </a>
+        <a href="#para-quem" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-sage transition-colors flex items-center justify-between">
+          <span>Quando Buscar Terapia</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-olive"></i>
+        </a>
+        <a href="#sobre" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-sage transition-colors flex items-center justify-between">
+          <span>Sobre a Profissional</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-olive"></i>
+        </a>
+        <a href="#como-funciona" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-sage transition-colors flex items-center justify-between">
+          <span>Como Funciona o Processo</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-olive"></i>
+        </a>
+        <a href="#faq" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-sage transition-colors flex items-center justify-between">
+          <span>Perguntas Frequentes</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-olive"></i>
+        </a>
+        <div class="pt-3 border-t border-wood-light/60">
+          <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+             target="_blank"
+             rel="noopener noreferrer"
+             class="w-full inline-flex items-center justify-center gap-2 bg-forest text-cream font-semibold py-3.5 px-5 rounded-xl shadow-sm">
+            <i data-lucide="message-circle-heart" class="w-5 h-5"></i>
+            <span>Agendar 1ª Conversa no WhatsApp</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         1. HERO SECTION
+         ========================================== -->
+    <section id="inicio" class="relative pt-8 pb-16 sm:pt-14 sm:pb-24 lg:py-24 overflow-hidden">
+      <!-- Elementos Decorativos Botânicos de Fundo -->
+      <div class="pointer-events-none absolute top-0 right-0 -z-10 w-80 h-80 bg-sage rounded-full blur-3xl opacity-70 translate-x-1/3 -translate-y-1/4"></div>
+      <div class="pointer-events-none absolute bottom-0 left-0 -z-10 w-96 h-96 bg-wood-light/40 rounded-full blur-3xl opacity-60 -translate-x-1/3 translate-y-1/4"></div>
+
+      <!-- Folhas decorativas inspiradas na arte -->
+      <svg class="pointer-events-none hidden xl:block absolute left-4 bottom-8 w-28 h-28 text-olive/20" viewBox="0 0 120 120" fill="currentColor" aria-hidden="true">
+        <path d="M20,100 C25,65 55,35 95,20 C85,60 55,90 20,100 Z" />
+        <path d="M15,90 C10,60 25,30 50,15 C50,45 35,75 15,90 Z" opacity="0.7" />
+      </svg>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+          <!-- Coluna de Texto (7 colunas no desktop) -->
+          <div class="lg:col-span-7 space-y-6 text-left">
+            <!-- Selo de Acolhimento -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage border border-olive/25 text-forest text-xs sm:text-sm font-semibold">
+              <span class="w-2 h-2 rounded-full bg-olive animate-pulse"></span>
+              <span>Psicoterapia acessível a todos por um <em class="font-hand text-lg not-italic text-forest font-bold">valor social</em></span>
+            </div>
+
+            <!-- Título Principal Obrigatório -->
+            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-forest leading-[1.2] tracking-tight">
+              Cuidar da sua saúde mental <span class="brush-highlight text-forest">também é prioridade.</span>
+            </h1>
+
+            <!-- Subtítulo Obrigatório -->
+            <p class="text-base sm:text-lg lg:text-xl text-ink-muted leading-relaxed max-w-2xl">
+              Atendimento acolhedor, humanizado e acessível por valor social. Sessões presenciais ou on-line no conforto de onde você estiver.
+            </p>
+
+            <!-- Destaque Chamativo Obrigatório: Primeira Consulta Gratuita -->
+            <div class="relative rounded-2xl bg-cream-card border-2 border-olive/35 p-4 sm:p-5 shadow-soft max-w-xl">
+              <div class="flex items-start gap-3.5">
+                <div class="w-11 h-11 rounded-full bg-olive text-cream flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-olive bg-sage px-2.5 py-0.5 rounded-full mb-1">
+                    Destaque Especial • Sem Compromisso
+                  </span>
+                  <p class="font-serif font-bold text-forest text-base sm:text-lg leading-snug">
+                    Primeira consulta de acolhimento gratuita (não cobrada).
+                  </p>
+                  <p class="text-xs sm:text-sm text-ink-muted mt-1">
+                    Um primeiro encontro para você se sentir ouvido(a), conhecer como funciona o processo terapêutico e alinhar horários e valores com tranquilidade.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botão de Ação (CTA Principal) + Micro-garantias -->
+            <div class="pt-2 flex flex-col sm:flex-row sm:items-center gap-4">
+              <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="group inline-flex items-center justify-center gap-3 bg-forest hover:bg-forest-dark text-cream font-bold text-base sm:text-lg px-7 py-4 rounded-2xl shadow-card hover:shadow-xl transition-all duration-200 active:scale-[0.99]">
+                <svg class="w-6 h-6 fill-current text-[#4ADE80] group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.533 5.859l-1.533 5.641 5.792-1.519c1.693.896 3.621 1.406 5.672 1.406 6.627 0 12-5.373 12-12s-5.373-12-12.464-11.387z"/>
+                </svg>
+                <span>Agendar primeira conversa via WhatsApp</span>
+              </a>
+
+              <a href="#como-funciona"
+                 class="inline-flex items-center justify-center gap-2 text-forest font-semibold text-sm px-4 py-3 rounded-xl hover:bg-sage/80 transition-colors">
+                <span>Entenda como funciona</span>
+                <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <!-- Selos de Confiança Rápida -->
+            <div class="pt-2 grid grid-cols-3 gap-3 max-w-lg border-t border-wood-light/70">
+              <div class="flex items-center gap-2 text-xs sm:text-sm text-ink-muted">
+                <i data-lucide="shield-check" class="w-4 h-4 text-olive shrink-0"></i>
+                <span>Sigilo Ético (CFP)</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs sm:text-sm text-ink-muted">
+                <i data-lucide="laptop" class="w-4 h-4 text-olive shrink-0"></i>
+                <span>On-line ou Presencial</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs sm:text-sm text-ink-muted">
+                <i data-lucide="clock" class="w-4 h-4 text-olive shrink-0"></i>
+                <span>Sem burocracia</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Visual (5 colunas no desktop) - Inspirada fielmente na identidade do anúncio -->
+          <div class="lg:col-span-5">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <!-- Moldura de Madeira Clara Suave -->
+              <div class="absolute -inset-2.5 bg-gradient-to-br from-olive/25 via-wood-light/60 to-sage rounded-[2rem] -rotate-1"></div>
+
+              <div class="relative bg-cream-card rounded-3xl overflow-hidden border border-wood-light shadow-card">
+                <!-- Imagem do Consultório Acolhedor (Extraída da arte oficial) -->
+                <div class="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden bg-cream-warm">
+                  <img src="assets/consultorio-hero.png"
+                       alt="Ambiente acolhedor de psicoterapia com diálogo empático e luz natural"
+                       class="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-forest/40 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-cream font-medium">
+                    <span class="bg-forest/90 backdrop-blur-sm px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-[#4ADE80]"></span>
+                      Agenda aberta para acolhimento
+                    </span>
+                    <span class="bg-cream/95 text-forest font-semibold px-3 py-1 rounded-full shadow-sm">
+                      (51) 99618-1136
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Faixa Verde Oliva do Anúncio ("Psicoterapia acessível a todos por um valor social") -->
+                <div class="bg-olive text-cream px-5 py-4 text-center relative">
+                  <p class="font-sans font-bold text-base sm:text-lg leading-snug">
+                    Psicoterapia acessível a todos por um
+                    <span class="font-hand text-2xl sm:text-3xl text-sage-highlight font-bold ml-1">valor social.</span>
+                  </p>
+                </div>
+
+                <!-- Os 3 Ícones Resumo do Cartaz -->
+                <div class="p-5 grid grid-cols-1 sm:grid-cols-3 gap-3.5 bg-cream-card divide-y sm:divide-y-0 sm:divide-x divide-wood-light/70">
+                  <div class="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-1.5 pt-1 sm:pt-0">
+                    <div class="w-10 h-10 rounded-full bg-olive text-cream flex items-center justify-center shrink-0">
+                      <i data-lucide="user-check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <h2 class="font-bold text-forest text-xs sm:text-sm">Psicoterapia breve</h2>
+                      <p class="text-[11px] text-ink-muted leading-tight mt-0.5">Tempo e objetivos alinhados com você</p>
+                    </div>
+                  </div>
+
+                  <div class="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-1.5 pt-3 sm:pt-0 sm:pl-3">
+                    <div class="w-10 h-10 rounded-full bg-olive text-cream flex items-center justify-center shrink-0">
+                      <i data-lucide="coins" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <h2 class="font-bold text-forest text-xs sm:text-sm">Valor social</h2>
+                      <p class="text-[11px] text-ink-muted leading-tight mt-0.5">Mais acesso ao seu bem-estar</p>
+                    </div>
+                  </div>
+
+                  <div class="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-1.5 pt-3 sm:pt-0 sm:pl-3">
+                    <div class="w-10 h-10 rounded-full bg-olive text-cream flex items-center justify-center shrink-0">
+                      <i data-lucide="heart" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <h2 class="font-bold text-forest text-xs sm:text-sm">1ª consulta gratuita</h2>
+                      <p class="text-[11px] text-ink-muted leading-tight mt-0.5">Primeiro encontro não é cobrado</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Rodapé do Card Visual -->
+                <div class="bg-sage-highlight/70 px-5 py-3 border-t border-olive/15 flex items-center justify-between">
+                  <span class="font-hand text-xl text-forest font-bold">Aproveite a oportunidade e entre em contato.</span>
+                  <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label="Conversar no WhatsApp"
+                     class="w-9 h-9 rounded-full bg-forest text-cream flex items-center justify-center hover:scale-105 transition-transform">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         2. DIFERENCIAIS / PILARES DO ATENDIMENTO
+         ========================================== -->
+    <section id="pilares" class="py-16 sm:py-24 bg-cream-warm/70 border-y border-wood-light/60">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Cabeçalho da Seção -->
+        <div class="max-w-3xl mx-auto text-center space-y-3 reveal">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-olive bg-sage px-3.5 py-1 rounded-full">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            Pilares do Atendimento
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-forest">
+            Um espaço de escuta ética pensado para caber na sua realidade
+          </h2>
+          <p class="text-ink-muted text-base sm:text-lg">
+            Acreditamos que o cuidado com a saúde emocional não deve ser um privilégio distante. Conheça os quatro pilares que sustentam nosso atendimento:
+          </p>
+        </div>
+
+        <!-- Grid de 4 Cards Obrigatórios -->
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Card 1: Psicoterapia Breve -->
+          <article class="reveal bg-cream-card rounded-3xl p-6 sm:p-7 border border-wood-light/80 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-olive text-cream flex items-center justify-center shadow-sm mb-5">
+                <i data-lucide="compass" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-olive">Foco & Direcionamento</span>
+              <h3 class="font-serif text-xl font-bold text-forest mt-1 mb-3">
+                Psicoterapia Breve
+              </h3>
+              <p class="text-ink-muted text-sm sm:text-base leading-relaxed">
+                Foco em objetivos pontuais com duração e ritmo alinhados com o cliente, respeitando a sua história e o momento atual que você está atravessando.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-wood-light/50 flex items-center gap-2 text-xs font-semibold text-forest">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-olive"></i>
+              <span>Objetivos construídos em conjunto</span>
+            </div>
+          </article>
+
+          <!-- Card 2: Valor Social -->
+          <article class="reveal bg-cream-card rounded-3xl p-6 sm:p-7 border border-wood-light/80 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-olive text-cream flex items-center justify-center shadow-sm mb-5">
+                <i data-lucide="hand-coins" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-olive">Acessibilidade Real</span>
+              <h3 class="font-serif text-xl font-bold text-forest mt-1 mb-3">
+                Valor Social
+              </h3>
+              <p class="text-ink-muted text-sm sm:text-base leading-relaxed">
+                Terapia ética e de qualidade com valores acessíveis (sessões entre R$ 60 e R$ 80) para caber no orçamento, permitindo que você mantenha a constância do seu cuidado emocional.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-wood-light/50 flex items-center gap-2 text-xs font-semibold text-forest">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-olive"></i>
+              <span>Valores sociais de R$ 60 e R$ 80</span>
+            </div>
+          </article>
+
+          <!-- Card 3: Flexibilidade (Presencial & On-line) -->
+          <article class="reveal bg-cream-card rounded-3xl p-6 sm:p-7 border border-wood-light/80 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-olive text-cream flex items-center justify-center shadow-sm mb-5">
+                <i data-lucide="video" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-olive">Onde Você Estiver</span>
+              <h3 class="font-serif text-xl font-bold text-forest mt-1 mb-3">
+                Flexibilidade (Presencial & On-line)
+              </h3>
+              <p class="text-ink-muted text-sm sm:text-base leading-relaxed">
+                Atendimentos adaptados à sua rotina e localização. Realize sua sessão presencialmente ou por videochamada, com total privacidade e praticidade.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-wood-light/50 flex items-center gap-2 text-xs font-semibold text-forest">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-olive"></i>
+              <span>Horários adaptáveis à sua rotina</span>
+            </div>
+          </article>
+
+          <!-- Card 4: Ambiente Seguro e Sem Julgamentos -->
+          <article class="reveal bg-cream-card rounded-3xl p-6 sm:p-7 border border-wood-light/80 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-olive text-cream flex items-center justify-center shadow-sm mb-5">
+                <i data-lucide="lock-keyhole" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-olive">Acolhimento & Ética</span>
+              <h3 class="font-serif text-xl font-bold text-forest mt-1 mb-3">
+                Ambiente Seguro e Sem Julgamentos
+              </h3>
+              <p class="text-ink-muted text-sm sm:text-base leading-relaxed">
+                Escuta profissional pautada no sigilo ético. Um lugar seguro para falar livremente sobre suas dores, dúvidas e angústias com acolhimento humano.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-wood-light/50 flex items-center gap-2 text-xs font-semibold text-forest">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-olive"></i>
+              <span>100% confidencial e acolhedor</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         2.1 QUANDO BUSCAR APOIO (Desmistificando a Terapia)
+         ========================================== -->
+    <section id="para-quem" class="py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-forest text-cream rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-card relative overflow-hidden reveal">
+          <!-- Decoração sutil de fundo -->
+          <div class="pointer-events-none absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-olive/25 blur-2xl"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+              <span class="inline-block text-xs font-bold uppercase tracking-widest text-sage-highlight bg-white/10 px-3 py-1 rounded-full">
+                Desmistificando a Terapia
+              </span>
+              <h2 class="font-serif text-2xl sm:text-3xl font-bold leading-snug">
+                Você não precisa esperar tudo transbordar para pedir ajuda.
+              </h2>
+              <p class="text-sage/90 text-sm sm:text-base leading-relaxed">
+                Muitas pessoas adiam o cuidado emocional por acharem que seus problemas "não são graves o suficiente" ou por receio do custo. A terapia é um espaço para qualquer pessoa que deseje se compreender melhor e viver com mais leveza.
+              </p>
+              <div class="pt-2">
+                <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 bg-sage-highlight hover:bg-white text-forest font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl transition-colors shadow-sm">
+                  <span>Dar o primeiro passo agora</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 flex items-start gap-3">
+                <i data-lucide="cloud-rain" class="w-5 h-5 text-sage-highlight shrink-0 mt-0.5"></i>
+                <div>
+                  <h3 class="font-bold text-sm sm:text-base text-white">Ansiedade, estresse e esgotamento</h3>
+                  <p class="text-xs sm:text-sm text-sage/85 mt-1">Sensação constante de sobrecarga, mente acelerada, insônia ou cansaço emocional.</p>
+                </div>
+              </div>
+
+              <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 flex items-start gap-3">
+                <i data-lucide="users" class="w-5 h-5 text-sage-highlight shrink-0 mt-0.5"></i>
+                <div>
+                  <h3 class="font-bold text-sm sm:text-base text-white">Conflitos e relacionamentos</h3>
+                  <p class="text-xs sm:text-sm text-sage/85 mt-1">Dificuldade em impor limites, repetições de padrões afetivos, questões familiares ou conjugais.</p>
+                </div>
+              </div>
+
+              <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 flex items-start gap-3">
+                <i data-lucide="sunrise" class="w-5 h-5 text-sage-highlight shrink-0 mt-0.5"></i>
+                <div>
+                  <h3 class="font-bold text-sm sm:text-base text-white">Transições, perdas e recomeços</h3>
+                  <p class="text-xs sm:text-sm text-sage/85 mt-1">Processos de luto, separações, mudanças de carreira, maternidade/paternidade ou crises de sentido.</p>
+                </div>
+              </div>
+
+              <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 flex items-start gap-3">
+                <i data-lucide="sparkles" class="w-5 h-5 text-sage-highlight shrink-0 mt-0.5"></i>
+                <div>
+                  <h3 class="font-bold text-sm sm:text-base text-white">Autoconhecimento e autoestima</h3>
+                  <p class="text-xs sm:text-sm text-sage/85 mt-1">Fortalecimento da autonomia emocional, acolhimento de inseguranças e construção de projetos de vida.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. SOBRE A PROFISSIONAL
+         ========================================== -->
+    <section id="sobre" class="py-16 sm:py-24 bg-cream-card border-y border-wood-light/70">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+          <!-- Coluna da Foto Profissional (5 colunas) -->
+          <div class="lg:col-span-5 reveal">
+            <div class="relative max-w-sm mx-auto">
+              <!-- Moldura decorativa orgânica -->
+              <div class="absolute -inset-3 rounded-[2rem] bg-sage border border-olive/20 rotate-2"></div>
+              <div class="absolute -bottom-4 -left-4 w-24 h-24 rounded-2xl bg-wood-light/70 -z-10"></div>
+
+              <!-- Card de Foto / Espaço Reservado para a Profissional -->
+              <div class="relative rounded-3xl overflow-hidden bg-cream-warm border-2 border-wood-light shadow-card">
+                <!-- Ilustração/Retrato acolhedor com instrução fácil de substituição -->
+                <div class="aspect-[4/5] relative bg-gradient-to-b from-sage/70 via-cream-warm to-wood-light/50 flex flex-col items-center justify-between p-6 text-center">
+                  <div class="w-full flex items-center justify-between text-xs font-semibold text-forest">
+                    <span class="bg-cream-card/90 backdrop-blur-sm px-3 py-1 rounded-full border border-wood-light">
+                      Escuta Clínica & Acolhimento
+                    </span>
+                    <span class="bg-forest text-cream px-3 py-1 rounded-full">
+                      CRP Ativo
+                    </span>
+                  </div>
+
+                  <!-- Avatar / Foto Profissional Estilizada -->
+                  <div class="my-auto flex flex-col items-center">
+                    <div class="w-40 h-40 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-cream-card shadow-md bg-sage flex items-center justify-center relative">
+                      <img src="assets/consultorio-hero.png"
+                           alt="Atendimento Psicológico Acolhedor"
+                           class="w-full h-full object-cover object-left" />
+                    </div>
+                    <p class="mt-4 font-serif font-bold text-lg text-forest">
+                      Espaço de Escuta Psicológica
+                    </p>
+                    <p class="text-xs text-ink-muted max-w-[230px] mt-1">
+                      Psicoterapia Individual • Adultos, Jovens e Idosos
+                    </p>
+                  </div>
+
+                  <!-- Crachá de Registro Profissional -->
+                  <div class="w-full bg-cream-card/95 backdrop-blur-sm rounded-2xl p-3.5 border border-wood-light text-left flex items-center gap-3 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-forest text-cream flex items-center justify-center shrink-0">
+                      <i data-lucide="award" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold uppercase tracking-wider text-olive">Registro Profissional</p>
+                      <p class="text-sm font-bold text-forest">CRP 07/4746 • Psicologia Clínica</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna da Biografia e Abordagem Clínica (7 colunas) -->
+          <div class="lg:col-span-7 space-y-6 reveal">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sage text-olive text-xs font-bold uppercase tracking-wider">
+              <i data-lucide="user-round-check" class="w-4 h-4"></i>
+              <span>Sobre o Atendimento & Abordagem</span>
+            </div>
+
+            <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-forest leading-tight">
+              Uma escuta qualificada, humana e comprometida com a sua singularidade
+            </h2>
+
+            <p class="text-ink-muted text-base sm:text-lg leading-relaxed">
+              Olá! Seja muito bem-vindo(a). Meu compromisso clínico é oferecer um espaço onde você possa pausar, respirar e falar sobre o que sente com liberdade, segurança e sem receio de julgamentos.
+            </p>
+
+            <p class="text-ink-muted text-base leading-relaxed">
+              Por meio da <strong class="text-forest">Psicoterapia Breve</strong> e da escuta clínica fundamentada na <strong class="text-forest">Psicanálise / Abordagem Humanizada</strong>, trabalhamos juntos para compreender as raízes das suas angústias, construir recursos emocionais mais saudáveis e estabelecer objetivos claros para o seu bem-estar, respeitando sempre o seu tempo e a sua realidade financeira através do <strong class="text-forest">Valor Social</strong>.
+            </p>
+
+            <!-- Pilares da Abordagem Clínica -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="bg-cream rounded-2xl p-4 border border-wood-light/80 flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-sage text-forest flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="book-open-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-forest text-sm sm:text-base">Abordagem Clínica</h3>
+                  <p class="text-xs sm:text-sm text-ink-muted mt-0.5">
+                    Escuta Analítica e Psicoterapia Breve Focal, com plano terapêutico alinhado às suas demandas.
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-cream rounded-2xl p-4 border border-wood-light/80 flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-sage text-forest flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="scale" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-forest text-sm sm:text-base">Compromisso Ético (CFP)</h3>
+                  <p class="text-xs sm:text-sm text-ink-muted mt-0.5">
+                    Atuação estritamente pautada no Código de Ética Profissional do Psicólogo e sigilo absoluto.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Citação Acolhedora -->
+            <blockquote class="border-l-4 border-olive bg-sage/40 rounded-r-2xl p-4 sm:p-5 italic text-forest text-sm sm:text-base">
+              “Quem olha para fora sonha; quem olha para dentro desperta. Cuidar da saúde mental é permitir-se ser ouvido com respeito à própria história.”
+            </blockquote>
+
+            <!-- Botão de Contato na Seção Sobre -->
+            <div class="pt-1 flex flex-wrap items-center gap-4">
+              <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2.5 bg-forest hover:bg-forest-dark text-cream font-semibold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-sm transition-all">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span>Conversar diretamente pelo WhatsApp</span>
+              </a>
+              <span class="text-xs sm:text-sm text-ink-muted flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-4 h-4 text-olive"></i>
+                Atendimento Presencial (RS) e On-line para todo o Brasil
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. COMO FUNCIONA O PROCESSO (Passo a Passo)
+         ========================================== -->
+    <section id="como-funciona" class="py-16 sm:py-24 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Título da Seção -->
+        <div class="max-w-3xl mx-auto text-center space-y-3 reveal">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-olive bg-sage px-3.5 py-1 rounded-full">
+            <i data-lucide="Footprints" class="w-3.5 h-3.5"></i>
+            Simples e Sem Burocracia
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-forest">
+            Como funciona o processo para começar?
+          </h2>
+          <p class="text-ink-muted text-base sm:text-lg">
+            Dar o primeiro passo pode gerar dúvidas. Por isso, tornamos o caminho até a sua primeira sessão o mais simples, transparente e acolhedor possível:
+          </p>
+        </div>
+
+        <!-- 3 Passos Obrigatórios -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 relative">
+
+          <!-- Linha conectora no Desktop -->
+          <div class="hidden md:block absolute top-14 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-olive/30 via-olive to-olive/30 -z-0"></div>
+
+          <!-- Passo 1 -->
+          <div class="reveal relative z-10 bg-cream-card rounded-3xl p-6 sm:p-8 border border-wood-light shadow-soft flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-forest text-cream font-serif font-bold text-xl flex items-center justify-center shadow-sm">
+                  01
+                </div>
+                <span class="text-xs font-bold uppercase tracking-wider text-olive bg-sage px-3 py-1 rounded-full">
+                  Rápido & Direto
+                </span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-forest mb-3">
+                Primeiro contato via WhatsApp
+              </h3>
+              <p class="text-ink-muted text-sm sm:text-base leading-relaxed">
+                Clique no botão do WhatsApp para enviar uma mensagem inicial. Você pode tirar suas dúvidas livremente e informar os dias e horários que costumam ser melhores para você.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-wood-light/60 flex items-center gap-2 text-xs font-medium text-ink-muted">
+              <i data-lucide="message-square-heart" class="w-4 h-4 text-olive"></i>
+              <span>Resposta humanizada e atenciosa</span>
+            </div>
+          </div>
+
+          <!-- Passo 2 -->
+          <div class="reveal relative z-10 bg-cream-card rounded-3xl p-6 sm:p-8 border-2 border-olive shadow-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-olive text-cream font-serif font-bold text-xl flex items-center justify-center shadow-sm">
+                  02
+                </div>
+                <span class="text-xs font-bold uppercase tracking-wider text-forest bg-sage-highlight px-3 py-1 rounded-full">
+                  100% Gratuita
+                </span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-forest mb-3">
+                Sessão inicial de acolhimento (gratuita)
+              </h3>
+              <p class="text-ink-muted text-sm sm:text-base leading-relaxed">
+                Realizamos nossa primeira consulta de acolhimento <strong>sem nenhum custo</strong>. É o momento de você falar sobre o que motivou sua busca e sentir segurança no vínculo terapêutico.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-wood-light/60 flex items-center gap-2 text-xs font-semibold text-forest">
+              <i data-lucide="heart" class="w-4 h-4 text-olive"></i>
+              <span>Primeira consulta não é cobrada</span>
+            </div>
+          </div>
+
+          <!-- Passo 3 -->
+          <div class="reveal relative z-10 bg-cream-card rounded-3xl p-6 sm:p-8 border border-wood-light shadow-soft flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-forest text-cream font-serif font-bold text-xl flex items-center justify-center shadow-sm">
+                  03
+                </div>
+                <span class="text-xs font-bold uppercase tracking-wider text-olive bg-sage px-3 py-1 rounded-full">
+                  Sob Medida
+                </span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-forest mb-3">
+                Definição de formato, horários e valor social
+              </h3>
+              <p class="text-ink-muted text-sm sm:text-base leading-relaxed">
+                Juntos, definimos a frequência, o formato (presencial ou on-line), os objetivos da psicoterapia breve e alinhamos o valor social (entre R$ 60 e R$ 80 por encontro) que caiba com tranquilidade no seu orçamento.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-wood-light/60 flex items-center gap-2 text-xs font-medium text-ink-muted">
+              <i data-lucide="calendar-check" class="w-4 h-4 text-olive"></i>
+              <span>Flexibilidade presencial ou on-line</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Facilitador Interativo de Agendamento (UX Bônus Mobile-First) -->
+        <div class="mt-12 bg-sage/60 rounded-3xl p-6 sm:p-8 border border-olive/25 max-w-4xl mx-auto reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-7 space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-xs font-bold text-forest uppercase tracking-wider">
+                <i data-lucide="sliders-horizontal" class="w-4 h-4 text-olive"></i>
+                <span>Personalize sua mensagem (Opcional)</span>
+              </div>
+              <h3 class="font-serif text-lg sm:text-xl font-bold text-forest">
+                Como você prefere realizar sua primeira conversa?
+              </h3>
+              <p class="text-xs sm:text-sm text-ink-muted">
+                Escolha sua preferência abaixo para já enviarmos a mensagem certinha no WhatsApp, ou clique diretamente em agendar:
+              </p>
+
+              <!-- Seletores Rápidos de Modalidade -->
+              <div class="pt-1 flex flex-wrap gap-2" role="group" aria-label="Escolha a modalidade de preferência">
+                <button type="button"
+                        data-mode="On-line"
+                        class="mode-btn active-mode text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl border transition-all bg-forest text-cream border-forest">
+                  💻 Prefiro On-line
+                </button>
+                <button type="button"
+                        data-mode="Presencial"
+                        class="mode-btn text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl border transition-all bg-cream-card text-ink border-wood-light hover:border-olive">
+                  🛋️ Prefiro Presencial
+                </button>
+                <button type="button"
+                        data-mode="Ainda quero decidir"
+                        class="mode-btn text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl border transition-all bg-cream-card text-ink border-wood-light hover:border-olive">
+                  💬 Quero tirar dúvidas antes
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col items-stretch sm:items-end justify-center gap-3">
+              <a id="custom-wa-link"
+                 href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="w-full inline-flex items-center justify-center gap-2.5 bg-forest hover:bg-forest-dark text-cream font-bold text-sm sm:text-base px-6 py-4 rounded-2xl shadow-soft transition-all text-center">
+                <i data-lucide="send" class="w-4 h-4 shrink-0"></i>
+                <span>Agendar 1ª Consulta Gratuita</span>
+              </a>
+              <p id="wa-preview-text" class="text-[11px] text-ink-muted italic text-center sm:text-right w-full">
+                Mensagem: “Olá! Gostaria de saber mais sobre as sessões com valor social.”
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. FAQ (PERGUNTAS FREQUENTES - ACCORDION)
+         ========================================== -->
+    <section id="faq" class="py-16 sm:py-24 bg-cream-warm/60 border-t border-wood-light/70">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Cabeçalho do FAQ -->
+        <div class="text-center space-y-3 reveal">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-olive bg-sage px-3.5 py-1 rounded-full">
+            <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+            Tire suas Dúvidas
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-forest">
+            Perguntas Frequentes
+          </h2>
+          <p class="text-ink-muted text-base sm:text-lg max-w-2xl mx-auto">
+            Reunimos as principais dúvidas de quem está dando o primeiro passo para iniciar a psicoterapia com valor social.
+          </p>
+        </div>
+
+        <!-- Lista Accordion -->
+        <div class="mt-10 space-y-4" id="faq-accordion">
+
+          <!-- Pergunta 1 -->
+          <div class="faq-item open bg-cream-card rounded-2xl border border-wood-light shadow-soft transition-all">
+            <h3>
+              <button type="button"
+                      aria-expanded="true"
+                      class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+                <span class="font-serif font-bold text-base sm:text-lg text-forest">
+                  1. Como funciona o valor social?
+                </span>
+                <span class="faq-icon w-9 h-9 rounded-full bg-sage text-forest flex items-center justify-center shrink-0 transition-all duration-300">
+                  <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-content">
+              <div class="faq-inner px-6 pb-6 text-ink-muted text-sm sm:text-base leading-relaxed border-t border-wood-light/40 pt-4">
+                O atendimento por <strong>valor social</strong> tem como objetivo democratizar o acesso ao cuidado com a saúde mental, oferecendo valores reduzidos e acessíveis em relação à tabela particular tradicional, com sessões com investimento social de <strong>R$ 60 a R$ 80</strong>. Durante a nossa <strong>primeira consulta de acolhimento (que não é cobrada)</strong>, conversamos de forma aberta e empática sobre a sua realidade atual para alinhar um valor justo e sustentável dentro dessa faixa para o seu orçamento.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 2 -->
+          <div class="faq-item bg-cream-card rounded-2xl border border-wood-light shadow-soft transition-all">
+            <h3>
+              <button type="button"
+                      aria-expanded="false"
+                      class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+                <span class="font-serif font-bold text-base sm:text-lg text-forest">
+                  2. As sessões online funcionam igual às presenciais?
+                </span>
+                <span class="faq-icon w-9 h-9 rounded-full bg-sage text-forest flex items-center justify-center shrink-0 transition-all duration-300">
+                  <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-content">
+              <div class="faq-inner px-6 pb-6 text-ink-muted text-sm sm:text-base leading-relaxed border-t border-wood-light/40 pt-4">
+                Sim! O atendimento psicológico on-line é regulamentado pelo <strong>Conselho Federal de Psicologia (Resolução CFP nº 11/2018)</strong> e possui a mesma eficácia, ética, qualidade de escuta e sigilo das sessões presenciais. Você só precisa de um celular ou computador com internet e um local reservado onde se sinta confortável para conversar. E, se preferir o contato presencial, também contamos com essa modalidade.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 3 -->
+          <div class="faq-item bg-cream-card rounded-2xl border border-wood-light shadow-soft transition-all">
+            <h3>
+              <button type="button"
+                      aria-expanded="false"
+                      class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+                <span class="font-serif font-bold text-base sm:text-lg text-forest">
+                  3. Qual a duração média de cada encontro?
+                </span>
+                <span class="faq-icon w-9 h-9 rounded-full bg-sage text-forest flex items-center justify-center shrink-0 transition-all duration-300">
+                  <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-content">
+              <div class="faq-inner px-6 pb-6 text-ink-muted text-sm sm:text-base leading-relaxed border-t border-wood-light/40 pt-4">
+                As sessões têm duração média de <strong>45 a 50 minutos</strong> e geralmente acontecem uma vez por semana, em dia e horário fixos combinados com você. Na modalidade de <strong>Psicoterapia Breve</strong>, tanto o tempo quanto os objetivos terapêuticos são alinhados em conjunto desde o início.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 4 -->
+          <div class="faq-item bg-cream-card rounded-2xl border border-wood-light shadow-soft transition-all">
+            <h3>
+              <button type="button"
+                      aria-expanded="false"
+                      class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+                <span class="font-serif font-bold text-base sm:text-lg text-forest">
+                  4. Preciso ter indicação médica para começar?
+                </span>
+                <span class="faq-icon w-9 h-9 rounded-full bg-sage text-forest flex items-center justify-center shrink-0 transition-all duration-300">
+                  <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-content">
+              <div class="faq-inner px-6 pb-6 text-ink-muted text-sm sm:text-base leading-relaxed border-t border-wood-light/40 pt-4">
+                <strong>Não é necessário ter encaminhamento ou indicação médica.</strong> Qualquer pessoa que deseje cuidar da sua saúde emocional, compreender suas emoções ou atravessar um momento difícil com apoio profissional pode buscar diretamente a psicoterapia.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 5 (Extra para reforçar o diferencial da 1ª consulta gratuita) -->
+          <div class="faq-item bg-cream-card rounded-2xl border border-wood-light shadow-soft transition-all">
+            <h3>
+              <button type="button"
+                      aria-expanded="false"
+                      class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+                <span class="font-serif font-bold text-base sm:text-lg text-forest">
+                  5. A primeira consulta de acolhimento é realmente gratuita?
+                </span>
+                <span class="faq-icon w-9 h-9 rounded-full bg-sage text-forest flex items-center justify-center shrink-0 transition-all duration-300">
+                  <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-content">
+              <div class="faq-inner px-6 pb-6 text-ink-muted text-sm sm:text-base leading-relaxed border-t border-wood-light/40 pt-4">
+                Sim, <strong>a primeira consulta não é cobrada</strong>. Acreditamos que o vínculo de confiança entre paciente e terapeuta é essencial. Por isso, esse primeiro encontro serve para acolher sua demanda inicial, explicar como as sessões funcionam e permitir que você decida com tranquilidade sobre a continuidade do seu processo.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Chamada Final pós-FAQ -->
+        <div class="mt-12 bg-sage-highlight/80 border border-olive/30 rounded-3xl p-6 sm:p-10 text-center space-y-5 shadow-soft reveal">
+          <p class="font-hand text-3xl sm:text-4xl text-forest font-bold">
+            Aproveite a oportunidade e entre em contato.
+          </p>
+          <p class="text-ink-muted text-sm sm:text-base max-w-xl mx-auto">
+            Ficou com alguma outra dúvida ou quer verificar os horários disponíveis para a sua primeira consulta gratuita de acolhimento?
+          </p>
+          <div class="pt-1">
+            <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center justify-center gap-3 bg-forest hover:bg-forest-dark text-cream font-bold text-base sm:text-lg px-8 py-4 rounded-2xl shadow-card hover:shadow-xl transition-all">
+              <svg class="w-5 h-5 fill-current text-[#4ADE80]" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.533 5.859l-1.533 5.641 5.792-1.519c1.693.896 3.621 1.406 5.672 1.406 6.627 0 12-5.373 12-12s-5.373-12-12.464-11.387z"/>
+              </svg>
+              <span>Falar no WhatsApp: (51) 99618-1136</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       6. RODAPÉ & MENÇÃO ÉTICA OBRIGATÓRIA
+       ========================================== -->
+  <footer class="bg-forest-dark text-cream pt-14 pb-24 sm:pb-14 border-t border-olive/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+
+        <!-- Coluna 1: Identidade -->
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-olive text-cream flex items-center justify-center">
+              <i data-lucide="heart" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="font-hand text-2xl font-bold text-sage-highlight block leading-none">Psicoterapia</span>
+              <span class="text-xs text-sage/80 uppercase tracking-wider">Valor Social • Presencial & On-line</span>
+            </div>
+          </div>
+          <p class="text-sm text-sage/80 leading-relaxed max-w-sm">
+            Cuidar da sua saúde mental também é prioridade. Atendimento psicológico acolhedor, ético e acessível para apoiar a sua jornada de autoconhecimento e bem-estar.
+          </p>
+        </div>
+
+        <!-- Coluna 2: Navegação Rápida -->
+        <div class="md:col-span-3 space-y-2.5">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-sage-highlight">Navegação</h3>
+          <ul class="space-y-2 text-sm text-sage/85">
+            <li><a href="#inicio" class="hover:text-white transition-colors">Início</a></li>
+            <li><a href="#pilares" class="hover:text-white transition-colors">Pilares do Atendimento</a></li>
+            <li><a href="#sobre" class="hover:text-white transition-colors">Sobre a Profissional</a></li>
+            <li><a href="#como-funciona" class="hover:text-white transition-colors">Como Funciona</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors">Perguntas Frequentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Contato Direto -->
+        <div class="md:col-span-4 space-y-3">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-sage-highlight">Contato & Agendamentos</h3>
+          <p class="text-sm text-sage/85 flex items-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4 text-sage-highlight shrink-0"></i>
+            <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+               target="_blank"
+               rel="noopener noreferrer"
+               class="hover:underline font-semibold text-white">
+              WhatsApp: (51) 99618-1136
+            </a>
+          </p>
+          <p class="text-sm text-sage/85 flex items-center gap-2">
+            <i data-lucide="globe" class="w-4 h-4 text-sage-highlight shrink-0"></i>
+            <span>Modalidades: Presencial e On-line</span>
+          </p>
+          <p class="text-sm text-sage/85 flex items-center gap-2">
+            <i data-lucide="heart-handshake" class="w-4 h-4 text-sage-highlight shrink-0"></i>
+            <span>1ª consulta de acolhimento não é cobrada</span>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Menção Ética Obrigatória + Nota de Emergência (CFP/CVV) -->
+      <div class="pt-8 space-y-4 text-xs sm:text-sm text-sage/80">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-start gap-3">
+            <i data-lucide="shield-check" class="w-5 h-5 text-sage-highlight shrink-0 mt-0.5"></i>
+            <p class="font-medium text-cream">
+              Atendimento psicológico de acordo com as normas do Conselho Federal de Psicologia.
+            </p>
+          </div>
+          <span class="text-xs text-sage/70 shrink-0">
+            Código de Ética Profissional • Resolução CFP nº 11/2018
+          </span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-sage/65 pt-2">
+          <p>
+            <strong>Atenção:</strong> Este site não oferece atendimento imediato de urgência. Em caso de crise emocional aguda ou emergência, ligue gratuitamente para o <strong>CVV (188)</strong> ou procure o serviço de saúde mais próximo.
+          </p>
+          <p class="shrink-0">
+            &copy; <span id="current-year">2026</span> Psicoterapia Valor Social. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       BOTÃO FLUTUANTE DO WHATSAPP (Canto Inferior Direito)
+       ========================================== -->
+  <div class="fixed bottom-5 right-5 z-50 flex items-center gap-3">
+    <!-- Balão de Chamada (Visível em telas maiores para aumentar conversão) -->
+    <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+       target="_blank"
+       rel="noopener noreferrer"
+       class="hidden sm:flex items-center gap-2.5 bg-cream-card text-forest border border-wood-light px-4 py-2.5 rounded-2xl shadow-card hover:bg-sage transition-colors">
+      <span class="w-2.5 h-2.5 rounded-full bg-[#22C55E] animate-ping"></span>
+      <div class="text-left">
+        <span class="block text-[11px] font-semibold text-ink-muted leading-none">1ª Consulta Gratuita</span>
+        <span class="block text-xs font-bold text-forest mt-0.5">(51) 99618-1136</span>
+      </div>
+    </a>
+
+    <!-- Botão Redondo Principal -->
+    <a href="https://wa.me/5551996181136?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20com%20valor%20social."
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Agendar conversa pelo WhatsApp (51) 99618-1136"
+       class="whatsapp-pulse w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-forest hover:bg-forest-dark text-cream flex items-center justify-center shadow-card border-2 border-sage-highlight transition-transform duration-200 hover:scale-105">
+      <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current text-[#4ADE80]" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.533 5.859l-1.533 5.641 5.792-1.519c1.693.896 3.621 1.406 5.672 1.406 6.627 0 12-5.373 12-12s-5.373-12-12.464-11.387z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- ==========================================
+       VANILLA JAVASCRIPT (Menu, FAQ Accordion, Personalizador WhatsApp & Scroll Reveal)
+       ========================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Inicializa os ícones Lucide
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+
+      // 2. Atualiza o ano no rodapé dinamicamente
+      const yearSpan = document.getElementById('current-year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      // 3. Controle do Menu Mobile
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      const toggleMobileMenu = (forceClose = false) => {
+        const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+        const nextState = forceClose ? false : !isExpanded;
+        mobileBtn.setAttribute('aria-expanded', String(nextState));
+        mobileMenu.classList.toggle('hidden', !nextState);
+        iconOpen.classList.toggle('hidden', nextState);
+        iconClose.classList.toggle('hidden', !nextState);
+      };
+
+      if (mobileBtn) {
+        mobileBtn.addEventListener('click', () => toggleMobileMenu());
+      }
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMobileMenu(true));
+      });
+
+      // 4. Controle do FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const trigger = item.querySelector('.faq-trigger');
+        trigger.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+
+          // Fecha os demais itens para manter a leitura limpa
+          faqItems.forEach(other => {
+            other.classList.remove('open');
+            const otherBtn = other.querySelector('.faq-trigger');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          });
+
+          // Alterna o item clicado
+          if (!isOpen) {
+            item.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // 5. Personalizador de Mensagem para o WhatsApp na seção "Como Funciona"
+      const modeButtons = document.querySelectorAll('.mode-btn');
+      const customWaLink = document.getElementById('custom-wa-link');
+      const waPreviewText = document.getElementById('wa-preview-text');
+      const phone = '5551996181136';
+
+      const messagesByMode = {
+        'On-line': 'Olá! Gostaria de saber mais sobre as sessões com valor social na modalidade on-line e agendar a primeira consulta gratuita.',
+        'Presencial': 'Olá! Gostaria de saber mais sobre as sessões com valor social na modalidade presencial e agendar a primeira consulta gratuita.',
+        'Ainda quero decidir': 'Olá! Gostaria de saber mais sobre as sessões com valor social.'
+      };
+
+      modeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modeButtons.forEach(b => {
+            b.classList.remove('bg-forest', 'text-cream', 'border-forest');
+            b.classList.add('bg-cream-card', 'text-ink', 'border-wood-light');
+          });
+          btn.classList.remove('bg-cream-card', 'text-ink', 'border-wood-light');
+          btn.classList.add('bg-forest', 'text-cream', 'border-forest');
+
+          const mode = btn.getAttribute('data-mode');
+          const msg = messagesByMode[mode] || messagesByMode['Ainda quero decidir'];
+          if (customWaLink) {
+            customWaLink.href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+          }
+          if (waPreviewText) {
+            waPreviewText.textContent = `Mensagem: “${msg}”`;
+          }
+        });
+      });
+
+      // 6. Scroll Reveal Suave com IntersectionObserver
+      const revealElements = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach(el => observer.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add('active'));
+      }
+    });
+  </script>
+</body>
+</html>

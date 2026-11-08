@@ -1,0 +1,34 @@
+# Dependências e builds
+node_modules/
+**/node_modules/
+.gradle/
+**/.gradle/
+build/
+**/build/
+.cxx/
+**/.cxx/
+*.apk
+*.aab
+*.iml
+.idea/
+.DS_Store
+
+# Módulos da plataforma em desenvolvimento off
+android-app/
+telepsi/
+
+# Credenciais, chaves e arquivos de ambiente (nunca versionados)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.keystore
+*.jks
+**/local.properties
+*.log
+
+# Documentos internos locais (nunca versionados)
+HANDOVER.md
+PROMPT.txt
+PROMPT.md
